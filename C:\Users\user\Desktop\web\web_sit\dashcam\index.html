@@ -1,1 +1,234 @@
 # cameras
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أنظمة المراقبة والحلول الذكية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* الإعدادات الأساسية */
+        :root {
+            --primary: #0f2027;
+            --secondary: #203a43;
+            --accent: #ffb703;
+            --bg-color: #f4f6f9;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-dark); line-height: 1.6; }
+        
+        /* أزرار وعناصر عامة */
+        .btn { display: inline-block; background: var(--accent); color: #000; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; cursor: pointer; border: none; transition: 0.3s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255, 183, 3, 0.4); }
+        .hidden { display: none !important; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* شريط التنقل (Header) */
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); padding: 40px 20px; text-align: center; border-bottom: 4px solid var(--accent); position: relative; }
+        header h1 { font-size: 2.2rem; margin-bottom: 10px; font-weight: 800; }
+        header p { font-size: 1.1rem; color: #d1d5db; max-width: 700px; margin: 0 auto; }
+        .back-btn { position: absolute; right: 20px; top: 20px; background: rgba(255,255,255,0.1); color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; cursor: pointer; }
+        .back-btn:hover { background: rgba(255,255,255,0.2); }
+
+        /* البانر الإعلاني */
+        .main-banner { text-align: center; margin-top: 30px; }
+        .main-banner img { max-width: 100%; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 2px solid #e5e7eb; }
+
+        /* شبكة الأصناف والمنتجات (Grid) */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; }
+        
+        /* بطاقات الأصناف */
+        .category-card, .product-card { background: var(--white); border-radius: 12px; padding: 25px 20px; text-align: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #e5e7eb; }
+        .category-card:hover, .product-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .category-icon { font-size: 3.5rem; margin-bottom: 15px; }
+        .category-card h3 { font-size: 1.3rem; color: var(--text-dark); }
+
+        /* بطاقات المنتجات */
+        .product-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+        .product-img-container { height: 220px; background-color: #fff; display: flex; align-items: center; justify-content: center; padding: 10px; border-bottom: 1px solid #eee; }
+        .product-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        .product-info h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); }
+
+        /* صفحة تفاصيل المنتج */
+        .product-details { background: var(--white); border-radius: 12px; padding: 30px; margin-top: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 30px; align-items: center; }
+        .details-img-wrapper { flex: 1; min-width: 300px; text-align: center; background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #eee; }
+        .details-img { max-width: 100%; max-height: 400px; object-fit: contain; }
+        .details-content { flex: 1; min-width: 300px; }
+        .details-content h2 { font-size: 2rem; margin-bottom: 15px; color: var(--primary); }
+        .details-content p { font-size: 1.1rem; color: var(--text-light); margin-bottom: 25px; line-height: 1.8; }
+
+        /* تذييل الصفحة */
+        footer { text-align: center; padding: 20px; background: var(--primary); color: #9ca3af; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <!-- الواجهة 1: الصفحة الرئيسية -->
+    <div id="home-view">
+        <header>
+            <h1>مؤسسة الحلول الأمنية المتكاملة</h1>
+            <p>خبراء في تقديم أحدث تقنيات كاميرات المراقبة، أنظمة الانتركم، وحلول الأمان للمركبات والمعدات الثقيلة.</p>
+        </header>
+        <div class="container">
+            
+            <!-- البنر التسويقي الرئيسي -->
+            <div class="main-banner">
+                <img src="watermarked_img_5915946543735934729.png" alt="أنظمة المراقبة الذكية الشاملة">
+            </div>
+
+            <h2 style="text-align: center; margin-top: 40px; color: #0f2027;">أقسام المنتجات</h2>
+            <div class="grid-container" id="categories-grid">
+                <!-- سيتم حقن الأصناف هنا بواسطة جافاسكريبت -->
+            </div>
+        </div>
+    </div>
+
+    <!-- الواجهة 2: قائمة منتجات الصنف -->
+    <div id="category-view" class="hidden">
+        <header>
+            <a class="back-btn" onclick="goHome()">العودة للرئيسية ↩</a>
+            <h1 id="category-title">اسم الصنف</h1>
+            <p>تصفح أحدث المنتجات في هذا القسم</p>
+        </header>
+        <div class="container">
+            <div class="grid-container" id="products-grid">
+                <!-- سيتم حقن المنتجات هنا -->
+            </div>
+        </div>
+    </div>
+
+    <!-- الواجهة 3: تفاصيل المنتج -->
+    <div id="product-view" class="hidden">
+        <header>
+            <a class="back-btn" onclick="goBackToCategory()">العودة للمنتجات ↩</a>
+            <h1>تفاصيل المنتج</h1>
+        </header>
+        <div class="container">
+            <div class="product-details">
+                <div class="details-img-wrapper">
+                    <img id="detail-img" src="" alt="صورة المنتج" class="details-img">
+                </div>
+                <div class="details-content">
+                    <h2 id="detail-title">اسم المنتج</h2>
+                    <p id="detail-desc">وصف المنتج سيظهر هنا...</p>
+                    <a href="tel:0551453595" class="btn">📞 اطلب الآن: 0551453595</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © مؤسسة الحلول الأمنية - للتواصل: 0551453595</p>
+    </footer>
+
+    <!-- سكربت جافاسكريبت للتحكم بالموقع -->
+    <script>
+        // قاعدة بيانات المنتجات باستخدام صورك الحقيقية
+        const storeData = {
+            categories: [
+                { id: 'cctv', name: 'كاميرات المراقبة', icon: '📷' },
+                { id: 'solar', name: 'كاميرات الطاقة الشمسية', icon: '☀️' },
+                { id: 'dashcam', name: 'داش كام السيارات', icon: '🚗' },
+                { id: 'intercom', name: 'أنظمة الانتركم والبيجر', icon: '📞' },
+                { id: 'heavy', name: 'كاميرات مراقبة المعدات', icon: '🚜' }
+            ],
+            products: {
+                'cctv': [
+                    { id: 'cctv1', name: 'طقم كاميرات هيكفيجن متكامل', img: 'كاميرات-مراقبة-هيك-فيجن_1.webp', desc: 'طقم مراقبة احترافي متكامل من هيكفيجن (Hikvision) يشمل جهاز تسجيل (DVR) وكاميرات داخلية وخارجية عالية الدقة لضمان أمان تام لمنشأتك.' },
+                    { id: 'cctv2', name: 'كاميرا هيكفيجن بعدستين', img: 'كاميرا هيكفجن عدستين 1.png', desc: 'كاميرا متطورة مزدوجة العدسة من هيكفيجن، تمنحك زاوية رؤية واسعة جداً وتفاصيل دقيقة في نفس الوقت دون وجود نقاط عمياء.' },
+                    { id: 'cctv3', name: 'كاميرات هيكفيجن الخارجية المتعددة', img: 'i282882364637522928.jpg', desc: 'مجموعة متنوعة من كاميرات هيكفيجن الخارجية (PTZ و Bullet) المقاومة للعوامل الجوية وتدعم الرؤية الليلية المتقدمة.' },
+                    { id: 'cctv4', name: 'كاميرا هيكفيجن خارجية (Bullet)', img: 'LfYhOMkUMcYjJqmAvA5t9leIvoJRL6SB6JflMBPP.jpeg', desc: 'كاميرا خارجية قوية بتصميم مدمج، مقاومة للماء والغبار، توفر صورة فائقة الوضوح لمراقبة الأسوار والمداخل.' },
+                    { id: 'cctv5', name: 'كاميرا ايزفيز (EZVIZ) داخلية', img: 'ازفز داخلي.webp', desc: 'كاميرا مراقبة داخلية ذكية تدعم الدوران 360 درجة، مع ميزة التتبع التلقائي للحركة، والتحدث الصوتي باتجاهين.' },
+                    { id: 'cctv6', name: 'كاميرا هيكفيجن بانورامية', img: 'كاميرا هيطفجن عدستين.png', desc: 'إصدار متقدم من كاميرات هيكفيجن ثنائية العدسة متوفرة باللونين الأبيض والأسود لتناسب ديكور المكان مع توفير أقصى درجات الحماية.' }
+                ],
+                'solar': [
+                    { id: 'sol1', name: 'كاميرا طاقة شمسية EZVIZ EB8 Pro 4G', img: 'SkpaSmwEih9rkpI949YXdYNRkvNq3U0JhXfpkRmk.webp', desc: 'كاميرا مراقبة خارجية ذكية تعمل بشريحة 4G بلوح طاقة شمسية مدمج. مثالية للمزارع والمواقع الانشائية حيث لا تتوفر شبكة واي فاي أو كهرباء.' },
+                    { id: 'sol2', name: 'كاميرا طاقة شمسية قوية بـ 3 عدسات وكشافات', img: 'Screenshot_٢٠٢٦٠١٢٠_١٩٢٧٥١_Temu.jpg', desc: 'كاميرا مراقبة جبارة مقاومة للماء (IP66) مزودة بلوح طاقة شمسية عالي الكفاءة، وعدسات متعددة مع كشافات إضاءة (LED) قوية لرؤية ليلية ملونة كالنهار.' },
+                    { id: 'sol3', name: 'كاميرا طاقة شمسية للمناطق الصحراوية', img: 'Screenshot_٢٠٢٥١١١٧_٢٠٣٦٤٨_Gallery.jpg', desc: 'صممت خصيصاً لتحمل أقسى الظروف الجوية والحرارة العالية، مزودة بلوح طاقة شمسية كبير وبطارية ضخمة لضمان عملها بشكل متواصل في المواقع النائية.' }
+                ],
+                'dashcam': [
+                    { id: 'dash1', name: 'داش كام ذكي بتقنية 4G LTE', img: 'Screenshot_٢٠٢٦٠١٢٠_١٦٥٥٣٤_Alibabacom.jpg', desc: 'كاميرا مراقبة للسيارات تدعم الاتصال بالانترنت عبر شريحة 4G، تتيح لك مراقبة سيارتك بث مباشر عبر التطبيق مع دعم التخزين السحابي.' }
+                ],
+                'intercom': [
+                    { id: 'int1', name: 'بيجر طلبات المطاعم', img: 'https://placehold.co/600x400/203a43/ffffff?text=Pager+System', desc: 'نظام بيجر متكامل لتنظيم طلبات العملاء في الكافيهات والمطاعم، مدى لاسلكي طويل.' },
+                    { id: 'int2', name: 'انتركم لاسلكي للأعمال', img: 'https://placehold.co/600x400/203a43/ffffff?text=Intercom', desc: 'جهاز انتركم لاسلكي احترافي للمكاتب، يوفر اتصال صوتي نقي.' }
+                ],
+                'heavy': [
+                    { id: 'hev1', name: 'أنظمة المراقبة الشاملة للمعدات', img: 'watermarked_img_5915946543735934729.png', desc: 'نوفر حلولاً متكاملة لمراقبة المعدات الثقيلة والشاحنات بكاميرات مقاومة للصدمات وتتحمل بيئة العمل القاسية.' }
+                ]
+            }
+        };
+
+        let currentCategoryId = null;
+
+        function initHome() {
+            const grid = document.getElementById('categories-grid');
+            grid.innerHTML = '';
+            storeData.categories.forEach(cat => {
+                const card = document.createElement('div');
+                card.className = 'category-card';
+                card.onclick = () => openCategory(cat.id, cat.name);
+                card.innerHTML = `
+                    <div class="category-icon">${cat.icon}</div>
+                    <h3>${cat.name}</h3>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openCategory(categoryId, categoryName) {
+            currentCategoryId = categoryId;
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('product-view').classList.add('hidden');
+            document.getElementById('category-view').classList.remove('hidden');
+            
+            document.getElementById('category-title').innerText = categoryName;
+            
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+            
+            const products = storeData.products[categoryId] || [];
+            products.forEach(prod => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.onclick = () => openProduct(prod);
+                card.innerHTML = `
+                    <div class="product-img-container">
+                        <img src="${prod.img}" alt="${prod.name}" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3>${prod.name}</h3>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openProduct(product) {
+            document.getElementById('category-view').classList.add('hidden');
+            document.getElementById('product-view').classList.remove('hidden');
+            
+            document.getElementById('detail-img').src = product.img;
+            document.getElementById('detail-title').innerText = product.name;
+            document.getElementById('detail-desc').innerText = product.desc;
+        }
+
+        function goHome() {
+            document.getElementById('category-view').classList.add('hidden');
+            document.getElementById('product-view').classList.add('hidden');
+            document.getElementById('home-view').classList.remove('hidden');
+        }
+
+        function goBackToCategory() {
+            const categoryName = storeData.categories.find(c => c.id === currentCategoryId).name;
+            openCategory(currentCategoryId, categoryName);
+        }
+
+        window.onload = initHome;
+    </script>
+</body>
+</html>
